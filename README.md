@@ -35,7 +35,7 @@ Response (1) --> (0..*) Answer
 1. **Repository'yi klonlayın:**
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/godakvolkan/surveyapi.git
 cd survey_api
 ```
 

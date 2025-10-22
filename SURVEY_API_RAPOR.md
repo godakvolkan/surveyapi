@@ -3,7 +3,7 @@
 **Öğrenci:** [Adınız Soyadınız]  
 **Tarih:** 22 Ekim 2025  
 **Proje:** Ruby on Rails Survey API  
-**GitHub Repository:** [GitHub repo linkinizi buraya ekleyin]
+**GitHub Repository:** https://github.com/godakvolkan/surveyapi.git
 
 ---
 
@@ -395,7 +395,7 @@ rails server
 **Geliştirici:** [Adınız Soyadınız]  
 **Email:** [email@example.com]  
 **GitHub:** [github.com/username]  
-**Proje Repository:** [GitHub repo linki]
+**Proje Repository:** https://github.com/godakvolkan/surveyapi.git
 
 ---
 
