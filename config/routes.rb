@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'api/info'
   # API Routes
   namespace :api do
     namespace :v1 do
