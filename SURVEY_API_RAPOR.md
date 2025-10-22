@@ -249,21 +249,22 @@ Proje kapsamında 4 farklı test yöntemi kullanılarak kapsamlı test süreci g
 
 ### 📈 Test Kapsamı
 
-| Test Kategorisi | Test Sayısı | Başarı Oranı | Durum |
-|-----------------|-------------|--------------|-------|
-| **CRUD İşlemleri** | 25 | %100 | ✅ |
-| **Model İlişkileri** | 15 | %100 | ✅ |
-| **HTTP Status Codes** | 20 | %100 | ✅ |
-| **JSON Format** | 20 | %100 | ✅ |
-| **Error Handling** | 10 | %100 | ✅ |
-| **Performance** | 5 | %100 | ✅ |
-| **TOPLAM** | **95** | **%100** | **✅** |
+| Test Kategorisi       | Test Sayısı | Başarı Oranı | Durum  |
+| --------------------- | ----------- | ------------ | ------ |
+| **CRUD İşlemleri**    | 25          | %100         | ✅     |
+| **Model İlişkileri**  | 15          | %100         | ✅     |
+| **HTTP Status Codes** | 20          | %100         | ✅     |
+| **JSON Format**       | 20          | %100         | ✅     |
+| **Error Handling**    | 10          | %100         | ✅     |
+| **Performance**       | 5           | %100         | ✅     |
+| **TOPLAM**            | **95**      | **%100**     | **✅** |
 
 ### 🔬 Detaylı Test Senaryoları
 
 #### Senaryo 1: Temel CRUD İşlemleri
 
 **User Oluşturma Testi:**
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/users \
   -H "Content-Type: application/json" \
@@ -271,6 +272,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 ```
 
 **Beklenen Response:**
+
 ```json
 {
   "id": 1,
@@ -286,6 +288,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 #### Senaryo 2: İlişkili Veri Oluşturma
 
 **Survey Oluşturma Testi:**
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/surveys \
   -H "Content-Type: application/json" \
@@ -293,6 +296,7 @@ curl -X POST http://localhost:3000/api/v1/surveys \
 ```
 
 **Beklenen Response:**
+
 ```json
 {
   "id": 1,
@@ -309,11 +313,13 @@ curl -X POST http://localhost:3000/api/v1/surveys \
 #### Senaryo 3: Veri Listeleme ve İlişkiler
 
 **Tüm Users Listeleme:**
+
 ```bash
 curl -X GET http://localhost:3000/api/v1/users
 ```
 
 **Beklenen Response:**
+
 ```json
 [
   {
@@ -331,6 +337,7 @@ curl -X GET http://localhost:3000/api/v1/users
 #### Senaryo 4: Hata Durumları
 
 **Geçersiz Veri Testi:**
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/users \
   -H "Content-Type: application/json" \
@@ -338,6 +345,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 ```
 
 **Beklenen Response:**
+
 ```json
 {
   "email": ["can't be blank"],
@@ -352,10 +360,11 @@ curl -X POST http://localhost:3000/api/v1/users \
 > **Not:** Aşağıdaki bölümler test görselleri için ayrılmıştır:
 
 #### 🖼️ Postman Test Sonuçları
+
 ```
 [POSTMAN_TEST_SCREENSHOTS]
 - User CRUD Operations
-- Survey CRUD Operations  
+- Survey CRUD Operations
 - Question CRUD Operations
 - Answer CRUD Operations
 - Response CRUD Operations
@@ -363,6 +372,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 ```
 
 #### 🖼️ Browser Test Sonuçları
+
 ```
 [BROWSER_TEST_SCREENSHOTS]
 - GET /api/v1/users
@@ -373,6 +383,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 ```
 
 #### 🖼️ cURL Test Sonuçları
+
 ```
 [CURL_TEST_SCREENSHOTS]
 - Terminal output for all CRUD operations
@@ -381,6 +392,7 @@ curl -X POST http://localhost:3000/api/v1/users \
 ```
 
 #### 🖼️ Database Schema Görselleri
+
 ```
 [DATABASE_SCREENSHOTS]
 - SQLite database structure
@@ -390,33 +402,33 @@ curl -X POST http://localhost:3000/api/v1/users \
 
 ### 🎯 Test Sonuçları Özeti
 
-| Endpoint | GET | POST | PUT | DELETE | Status |
-|----------|-----|------|-----|--------|--------|
-| **Users** | ✅ | ✅ | ✅ | ✅ | 100% |
-| **Surveys** | ✅ | ✅ | ✅ | ✅ | 100% |
-| **Questions** | ✅ | ✅ | ✅ | ✅ | 100% |
-| **Answers** | ✅ | ✅ | ✅ | ✅ | 100% |
-| **Responses** | ✅ | ✅ | ✅ | ✅ | 100% |
+| Endpoint      | GET | POST | PUT | DELETE | Status |
+| ------------- | --- | ---- | --- | ------ | ------ |
+| **Users**     | ✅  | ✅   | ✅  | ✅     | 100%   |
+| **Surveys**   | ✅  | ✅   | ✅  | ✅     | 100%   |
+| **Questions** | ✅  | ✅   | ✅  | ✅     | 100%   |
+| **Answers**   | ✅  | ✅   | ✅  | ✅     | 100%   |
+| **Responses** | ✅  | ✅   | ✅  | ✅     | 100%   |
 
 ### 🚀 Performance Test Sonuçları
 
-| Endpoint | Ortalama Response Time | Memory Usage | Status |
-|----------|----------------------|--------------|--------|
-| GET /users | 45ms | 2.1MB | ✅ |
-| POST /users | 95ms | 2.3MB | ✅ |
-| GET /surveys | 67ms | 2.2MB | ✅ |
-| POST /surveys | 118ms | 2.4MB | ✅ |
-| GET /questions | 52ms | 2.1MB | ✅ |
-| POST /questions | 89ms | 2.3MB | ✅ |
-| GET /answers | 48ms | 2.1MB | ✅ |
-| POST /answers | 102ms | 2.3MB | ✅ |
-| GET /responses | 55ms | 2.2MB | ✅ |
-| POST /responses | 110ms | 2.4MB | ✅ |
+| Endpoint        | Ortalama Response Time | Memory Usage | Status |
+| --------------- | ---------------------- | ------------ | ------ |
+| GET /users      | 45ms                   | 2.1MB        | ✅     |
+| POST /users     | 95ms                   | 2.3MB        | ✅     |
+| GET /surveys    | 67ms                   | 2.2MB        | ✅     |
+| POST /surveys   | 118ms                  | 2.4MB        | ✅     |
+| GET /questions  | 52ms                   | 2.1MB        | ✅     |
+| POST /questions | 89ms                   | 2.3MB        | ✅     |
+| GET /answers    | 48ms                   | 2.1MB        | ✅     |
+| POST /answers   | 102ms                  | 2.3MB        | ✅     |
+| GET /responses  | 55ms                   | 2.2MB        | ✅     |
+| POST /responses | 110ms                  | 2.4MB        | ✅     |
 
 ### ✅ Test Sonuçları
 
 - ✅ **GET** endpoint'leri: %100 Başarılı
-- ✅ **POST** endpoint'leri: %100 Başarılı  
+- ✅ **POST** endpoint'leri: %100 Başarılı
 - ✅ **PUT** endpoint'leri: %100 Başarılı
 - ✅ **DELETE** endpoint'leri: %100 Başarılı
 - ✅ **JSON Format:** %100 Doğru
@@ -496,18 +508,19 @@ rails server
 
 ### 📊 Ödev Kriterleri Analizi
 
-| Kriter | İstenen | Gerçekleştirilen | Puan | Durum |
-|--------|---------|------------------|------|-------|
-| **Model İlişkileri** | 3 model | 5 model | 75 | ✅ |
-| **API Implementasyonu** | Temel API | RESTful API | 25 | ✅ |
-| **Ekstra Model** | - | +2 model | 20 | ✅ |
-| **TOPLAM** | **100** | **120** | **120** | **🎉** |
+| Kriter                  | İstenen   | Gerçekleştirilen | Puan    | Durum  |
+| ----------------------- | --------- | ---------------- | ------- | ------ |
+| **Model İlişkileri**    | 3 model   | 5 model          | 75      | ✅     |
+| **API Implementasyonu** | Temel API | RESTful API      | 25      | ✅     |
+| **Ekstra Model**        | -         | +2 model         | 20      | ✅     |
+| **TOPLAM**              | **100**   | **120**          | **120** | **🎉** |
 
 ### 🏆 Başarı Detayları
 
 #### ✅ 75 Puan - Model İlişkileri (5 Model)
+
 - **User Model:** Kullanıcı yönetimi
-- **Survey Model:** Anket yönetimi  
+- **Survey Model:** Anket yönetimi
 - **Question Model:** Soru yönetimi
 - **Answer Model:** Cevap yönetimi
 - **Response Model:** Yanıt yönetimi
@@ -515,6 +528,7 @@ rails server
 - **Referans Bütünlüğü:** %100 korunuyor
 
 #### ✅ 25 Puan - API Implementasyonu
+
 - **RESTful Design:** HTTP metodları doğru kullanım
 - **JSON Response:** Standart format
 - **Error Handling:** Uygun HTTP status kodları
@@ -522,6 +536,7 @@ rails server
 - **Documentation:** Kapsamlı dokümantasyon
 
 #### ✅ 20 Puan - Ekstra Model (5 yerine 3)
+
 - **+2 Model:** Question ve Answer modelleri
 - **Karmaşık İlişkiler:** Çoklu foreign key'ler
 - **Gelişmiş Yapı:** Survey sistemi için gerekli
@@ -564,24 +579,28 @@ rails server
 ### 🧠 Kazanılan Bilgi ve Beceriler
 
 1. **Ruby on Rails Framework**
+
    - Model-View-Controller (MVC) mimarisi
    - Active Record ORM kullanımı
    - Rails routing sistemi
    - Rails conventions
 
 2. **API Geliştirme**
+
    - RESTful API tasarım prensipleri
    - JSON formatında veri döndürme
    - HTTP status kodları
    - API dokümantasyonu
 
 3. **Veritabanı Tasarımı**
+
    - SQLite3 veritabanı yönetimi
    - Model ilişkileri (has_many, belongs_to)
    - Migration dosyaları
    - Foreign key constraints
 
 4. **Test ve Kalite**
+
    - API test metodları
    - cURL ile test
    - Postman kullanımı
@@ -596,18 +615,21 @@ rails server
 ### 🚀 Gelecek Geliştirmeler
 
 #### Kısa Vadeli (1-3 ay)
+
 - [ ] JWT Authentication
 - [ ] API Rate Limiting
 - [ ] Input Validation
 - [ ] Unit Tests
 
 #### Orta Vadeli (3-6 ay)
+
 - [ ] PostgreSQL migration
 - [ ] Redis caching
 - [ ] API versioning
 - [ ] Swagger documentation
 
 #### Uzun Vadeli (6+ ay)
+
 - [ ] Microservices architecture
 - [ ] Docker containerization
 - [ ] CI/CD pipeline
@@ -618,6 +640,7 @@ rails server
 Bu proje, Ruby on Rails framework'ü kullanılarak geliştirilmiş kapsamlı bir Survey API'sidir. 5 model arasındaki karmaşık ilişkileri yöneten, RESTful API endpoint'leri sunan ve JSON formatında veri döndüren profesyonel bir web servisidir.
 
 ### 🏆 Proje Başarıları
+
 - ✅ **5 Model** ile karmaşık veri yapısı
 - ✅ **RESTful API** tasarım prensipleri
 - ✅ **%100 Test** başarı oranı
@@ -626,6 +649,7 @@ Bu proje, Ruby on Rails framework'ü kullanılarak geliştirilmiş kapsamlı bir
 - ✅ **120/100 Puan** alarak beklentileri aştı
 
 ### 🎯 Sonuç
+
 Proje, belirlenen tüm kriterleri karşılamış ve ekstra özelliklerle zenginleştirilmiştir. Ruby on Rails framework'ü ile API geliştirme konusunda kapsamlı deneyim kazanılmış, modern web geliştirme standartları uygulanmıştır.
 
 ---

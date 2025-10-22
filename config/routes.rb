@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'api/info'
+  # API Routes
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show, :create, :update, :destroy]
@@ -7,6 +9,9 @@ Rails.application.routes.draw do
       resources :answers, only: [:index, :show, :create, :update, :destroy]
       resources :responses, only: [:index, :show, :create, :update, :destroy]
     end
+    
+    # API Info endpoint
+    get '', to: 'api#info'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
