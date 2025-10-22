@@ -1,0 +1,76 @@
+@startuml Survey API Database Schema
+
+!theme plain
+skinparam backgroundColor beige
+skinparam class {
+    BackgroundColor lightblue
+    BorderColor black
+    ArrowColor black
+}
+
+title Survey API - Database Schema
+
+' Entities
+class User {
+    + id : integer
+    + email : string
+    + username : string
+    + created_at : datetime
+    + updated_at : datetime
+}
+
+class Survey {
+    + id : integer
+    + title : string
+    + description : text
+    + user_id : integer
+    + created_at : datetime
+    + updated_at : datetime
+}
+
+class Question {
+    + id : integer
+    + text : string
+    + type : string
+    + survey_id : integer
+    + created_at : datetime
+    + updated_at : datetime
+}
+
+class Answer {
+    + id : integer
+    + text : string
+    + is_correct : boolean
+    + question_id : integer
+    + response_id : integer
+    + created_at : datetime
+    + updated_at : datetime
+}
+
+class Response {
+    + id : integer
+    + survey_id : integer
+    + user_id : integer
+    + created_at : datetime
+    + updated_at : datetime
+}
+
+' Relationships
+User ||--o{ Survey : "creates"
+User ||--o{ Response : "submits"
+Survey ||--o{ Question : "contains"
+Survey ||--o{ Response : "receives"
+Question ||--o{ Answer : "has"
+Response ||--o{ Answer : "provides"
+
+note right of User : User can create multiple surveys\nand submit multiple responses
+
+note right of Survey : Survey belongs to one user\nand can have multiple questions\nand responses
+
+note right of Question : Question belongs to one survey\nand can have multiple answers
+
+note right of Answer : Answer belongs to one question\nand one response
+
+note right of Response : Response belongs to one user\nand one survey, can have\nmultiple answers
+
+@enduml
